@@ -11,7 +11,7 @@
  Target Server Version : 100406
  File Encoding         : 65001
 
- Date: 13/09/2020 00:15:08
+ Date: 13/09/2020 07:26:06
 */
 
 SET NAMES utf8mb4;
@@ -136,7 +136,7 @@ CREATE TABLE `tnilai`  (
   `nilai` double(16, 2) NOT NULL,
   `kodealternatif` int(255) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 99 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tnilai
@@ -145,15 +145,99 @@ INSERT INTO `tnilai` VALUES (2, 2500000.00, 2999000.00, '', 1, 0.00, 1);
 INSERT INTO `tnilai` VALUES (3, 2000000.00, 2499000.00, '', 2, 0.00, 1);
 INSERT INTO `tnilai` VALUES (4, 1500000.00, 1999000.00, '', 3, 0.00, 1);
 INSERT INTO `tnilai` VALUES (5, 1000000.00, 1499000.00, '', 4, 0.00, 1);
-INSERT INTO `tnilai` VALUES (6, 0.00, 0.00, 'lecet parah', 5, 0.00, 2);
-INSERT INTO `tnilai` VALUES (7, 0.00, 0.00, 'lecet ringan', 6, 0.00, 2);
-INSERT INTO `tnilai` VALUES (8, 0.00, 0.00, 'mulus', 7, 0.00, 2);
-INSERT INTO `tnilai` VALUES (9, 0.00, 0.00, 'hanya unit', 8, 0.00, 3);
-INSERT INTO `tnilai` VALUES (10, 0.00, 0.00, 'unit + charger', 9, 0.00, 3);
-INSERT INTO `tnilai` VALUES (11, 0.00, 0.00, 'fullset', 10, 0.00, 3);
-INSERT INTO `tnilai` VALUES (12, 0.00, 0.00, '10', 11, 0.00, 4);
-INSERT INTO `tnilai` VALUES (13, 0.00, 0.00, '11.6', 12, 0.00, 4);
-INSERT INTO `tnilai` VALUES (14, 0.00, 0.00, '14', 13, 0.00, 4);
+INSERT INTO `tnilai` VALUES (6, 0.00, 0.00, 'lecet parah', 1, 0.00, 2);
+INSERT INTO `tnilai` VALUES (7, 0.00, 0.00, 'lecet ringan', 2, 0.00, 2);
+INSERT INTO `tnilai` VALUES (8, 0.00, 0.00, 'mulus', 3, 0.00, 2);
+INSERT INTO `tnilai` VALUES (9, 0.00, 0.00, 'hanya unit', 1, 0.00, 3);
+INSERT INTO `tnilai` VALUES (10, 0.00, 0.00, 'unit + charger', 2, 0.00, 3);
+INSERT INTO `tnilai` VALUES (11, 0.00, 0.00, 'fullset', 3, 0.00, 3);
+INSERT INTO `tnilai` VALUES (12, 0.00, 0.00, '10', 1, 0.00, 4);
+INSERT INTO `tnilai` VALUES (13, 0.00, 0.00, '11.6', 2, 0.00, 4);
+INSERT INTO `tnilai` VALUES (14, 0.00, 0.00, '14', 3, 0.00, 4);
+INSERT INTO `tnilai` VALUES (15, 0.00, 0.00, 'drop', 1, 0.00, 5);
+INSERT INTO `tnilai` VALUES (16, 0.00, 0.00, '<1jam', 2, 0.00, 5);
+INSERT INTO `tnilai` VALUES (17, 0.00, 0.00, '1jam-2jam', 3, 0.00, 5);
+INSERT INTO `tnilai` VALUES (18, 0.00, 0.00, '2jam-3jam', 4, 0.00, 5);
+INSERT INTO `tnilai` VALUES (19, 0.00, 0.00, '>3jam', 5, 0.00, 5);
+INSERT INTO `tnilai` VALUES (20, 0.00, 0.00, 'single (intelHD)', 1, 0.00, 6);
+INSERT INTO `tnilai` VALUES (21, 0.00, 0.00, 'dual (nvdia/radeon)', 2, 0.00, 6);
+INSERT INTO `tnilai` VALUES (22, 0.00, 0.00, 'Intel Pentium G540', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (23, 0.00, 0.00, 'Intel Pentium G620', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (24, 0.00, 0.00, 'Intel Pentium G630', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (25, 0.00, 0.00, 'Intel Pentium G645', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (26, 0.00, 0.00, 'Intel Pentium G840', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (27, 0.00, 0.00, 'Intel Pentium G850', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (28, 0.00, 0.00, 'Intel Pentium G860', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (29, 0.00, 0.00, 'Intel Pentium G870', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (30, 0.00, 0.00, 'Intel Pentium G2010', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (31, 0.00, 0.00, 'Intel Pentium G2120', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (32, 0.00, 0.00, 'Intel Dual Core', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (33, 0.00, 0.00, 'Intel Core 2 Duo', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (34, 0.00, 0.00, 'Intel Celeron', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (35, 0.00, 0.00, 'Intel Core i3 2100', 2, 2.00, 7);
+INSERT INTO `tnilai` VALUES (36, 0.00, 0.00, 'Intel Core i3 2120', 2, 2.00, 7);
+INSERT INTO `tnilai` VALUES (37, 0.00, 0.00, 'Intel Core i3 3210', 2, 2.00, 7);
+INSERT INTO `tnilai` VALUES (38, 0.00, 0.00, 'Intel Core i3 3220', 2, 2.00, 7);
+INSERT INTO `tnilai` VALUES (39, 0.00, 0.00, 'Intel Core i3 540', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (40, 0.00, 0.00, 'Intel Core i3 550', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (41, 0.00, 0.00, 'Intel Core i5 2310', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (42, 0.00, 0.00, 'Intel Core i5 2320', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (43, 0.00, 0.00, 'Intel Core i5 2400', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (44, 0.00, 0.00, 'Intel Core i5 2500', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (45, 0.00, 0.00, 'Intel Core i5 2500K', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (46, 0.00, 0.00, 'Intel Core i5 3330', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (47, 0.00, 0.00, 'Intel Core i5 3450', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (48, 0.00, 0.00, 'Intel Core i5 3470', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (49, 0.00, 0.00, 'Intel Core i5 3550', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (50, 0.00, 0.00, 'Intel Core i5 3570', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (51, 0.00, 0.00, 'Intel Core i5 3570K', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (52, 0.00, 0.00, 'Intel Core i5 760', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (53, 0.00, 0.00, 'Intel Core i7 2600', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (54, 0.00, 0.00, 'Intel Core i7 2600K', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (55, 0.00, 0.00, 'Intel Core i7 2700K', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (56, 0.00, 0.00, 'Intel Core i7 3770', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (57, 0.00, 0.00, 'Intel Core i7 3770K', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (58, 0.00, 0.00, 'Intel Core i7 3820', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (59, 0.00, 0.00, 'Intel Core i7 3930K', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (60, 0.00, 0.00, 'Intel Core i7 3960X', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (61, 0.00, 0.00, 'AMD Sempron 140', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (62, 0.00, 0.00, 'AMD Sempron 145', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (63, 0.00, 0.00, 'AMD Sempron 190', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (64, 0.00, 0.00, 'AMD Sempron 130', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (65, 0.00, 0.00, 'AMD Liano Athlon II X4 631', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (66, 0.00, 0.00, 'AMD Athlon II X2 260', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (67, 0.00, 0.00, 'AMD Athlon II X2 270', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (68, 0.00, 0.00, 'AMD Athlon II X3 455', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (69, 0.00, 0.00, 'AMD Athlon II X4 641', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (70, 0.00, 0.00, 'AMD Athlon II X4 651', 1, 1.00, 7);
+INSERT INTO `tnilai` VALUES (71, 0.00, 0.00, 'AMD Liano A4-X2 3300', 2, 2.00, 7);
+INSERT INTO `tnilai` VALUES (72, 0.00, 0.00, 'AMD Liano A4-X2 3400', 2, 2.00, 7);
+INSERT INTO `tnilai` VALUES (73, 0.00, 0.00, 'AMD Liano A6-3500', 2, 2.00, 7);
+INSERT INTO `tnilai` VALUES (74, 0.00, 0.00, 'AMD Liano A6-3650', 2, 2.00, 7);
+INSERT INTO `tnilai` VALUES (75, 0.00, 0.00, 'AMD Liano A6-3670K', 2, 2.00, 7);
+INSERT INTO `tnilai` VALUES (76, 0.00, 0.00, 'AMD Liano A8-3850', 2, 2.00, 7);
+INSERT INTO `tnilai` VALUES (77, 0.00, 0.00, 'AMD Liano A8-3870K', 2, 2.00, 7);
+INSERT INTO `tnilai` VALUES (78, 0.00, 0.00, 'AMD Phenom II X2 555 BE', 2, 2.00, 7);
+INSERT INTO `tnilai` VALUES (79, 0.00, 0.00, 'AMD A10-5800 K', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (80, 0.00, 0.00, 'AMD A4-5300', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (81, 0.00, 0.00, 'AMD A6-5400B', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (82, 0.00, 0.00, 'AMD A6-5400K', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (83, 0.00, 0.00, 'AMD A8-5600K', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (84, 0.00, 0.00, 'AMD FX 4100', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (85, 0.00, 0.00, 'AMD FX 4130', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (86, 0.00, 0.00, 'AMD FX 6100', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (87, 0.00, 0.00, 'AMD FX 8120', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (88, 0.00, 0.00, 'AMD FX 8150', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (89, 0.00, 0.00, 'AMD FX 4300', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (90, 0.00, 0.00, 'AMD FX 6300', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (91, 0.00, 0.00, 'AMD FX 8350', 3, 3.00, 7);
+INSERT INTO `tnilai` VALUES (92, 0.00, 0.00, '<2GB', 1, 0.00, 8);
+INSERT INTO `tnilai` VALUES (93, 0.00, 0.00, '2GB', 2, 0.00, 8);
+INSERT INTO `tnilai` VALUES (94, 0.00, 0.00, '4GB', 3, 0.00, 8);
+INSERT INTO `tnilai` VALUES (95, 0.00, 0.00, '8GB', 4, 0.00, 8);
+INSERT INTO `tnilai` VALUES (96, 0.00, 0.00, '320GB', 1, 0.00, 9);
+INSERT INTO `tnilai` VALUES (97, 0.00, 0.00, '500GB', 2, 0.00, 9);
+INSERT INTO `tnilai` VALUES (98, 0.00, 0.00, '1000GB', 3, 0.00, 9);
 
 -- ----------------------------
 -- Table structure for userrole
