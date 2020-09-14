@@ -56,5 +56,5 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['alternatif'] = 'Home/alternatif';
 $route['nilai'] = 'Home/nilai';
-$route['kriteria'] = 'Home/kriteria';
+$route['merk'] = 'Home/merk';
 $route['proses'] = 'Home/proses';

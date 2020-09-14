@@ -39,4 +39,8 @@ class home extends CI_Controller {
 	{
 		$this->load->view('nilai');
 	}
+	public function merk()
+	{
+		$this->load->view('merklaptop');
+	}
 }

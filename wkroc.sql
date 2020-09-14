@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : localhost
+ Source Server         : dev_aistrick
  Source Server Type    : MySQL
- Source Server Version : 100406
+ Source Server Version : 100210
  Source Host           : localhost:3306
  Source Schema         : wkroc
 
  Target Server Type    : MySQL
- Target Server Version : 100406
+ Target Server Version : 100210
  File Encoding         : 65001
 
- Date: 13/09/2020 07:26:06
+ Date: 14/09/2020 21:23:06
 */
 
 SET NAMES utf8mb4;
@@ -35,16 +35,14 @@ CREATE TABLE `permission`  (
   `MobileRoute` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `MobileLogo` int(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of permission
 -- ----------------------------
-INSERT INTO `permission` VALUES (2, 'Daftar Alternatif', 'alternatif', 'fa-pencil-square-o', '0', b'0', b'0', 2, b'1', NULL, NULL, NULL);
-INSERT INTO `permission` VALUES (3, 'Daftar Nilai', 'nilai', 'fa-pencil-square-o', '0', b'0', b'0', 3, b'1', NULL, NULL, NULL);
-INSERT INTO `permission` VALUES (4, 'Nilai', 'nilai', 'fa-check-square-o', '0', b'0', b'0', 5, b'0', NULL, NULL, NULL);
-INSERT INTO `permission` VALUES (5, 'Perhitungan Admin', 'proses', 'fa-spinner', '0', b'0', b'0', 6, b'1', NULL, NULL, NULL);
-INSERT INTO `permission` VALUES (6, 'Daftar Jenis Usaha', 'jenisusaha', 'fa-bell-o', '0', b'0', b'0', 1, b'0', NULL, NULL, NULL);
+INSERT INTO `permission` VALUES (1, 'Alternatif', 'alternatif', 'fa-check-square', '0', b'0', b'0', 1, b'1', NULL, NULL, NULL);
+INSERT INTO `permission` VALUES (2, 'Nilai', 'nilai', 'fa-check-square-o', '0', b'0', b'0', 2, b'1', NULL, NULL, NULL);
+INSERT INTO `permission` VALUES (3, 'Merk Laptop', 'merk', 'fa-file-image-o', '0', b'0', b'0', 3, b'1', NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for permissionrole
@@ -113,15 +111,54 @@ DROP TABLE IF EXISTS `tmerk`;
 CREATE TABLE `tmerk`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `Merk` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `KodeKriteria` int(255) NOT NULL,
-  `NamaKriteria` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `Nilai` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `Harga` double(16, 2) NOT NULL,
+  `KondisiFisik` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `Kelengkapan` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `UkuranLayar` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `DTBatrai` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `VGA` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `Processor` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `RAM` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `Hardisk` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `N_Harga` int(255) NOT NULL,
+  `N_KondisiFisik` int(255) NOT NULL,
+  `N_Kelengkapan` int(255) NOT NULL,
+  `N_UkuranLayar` int(255) NOT NULL,
+  `N_DTBatrai` int(255) NOT NULL,
+  `N_VGA` int(255) NOT NULL,
+  `N_Processor` int(255) NOT NULL,
+  `N_RAM` int(255) NOT NULL,
+  `N_Hardisk` int(255) NOT NULL,
+  `WK_Harga` double(16, 2) NOT NULL,
+  `WK_KondisiFisik` double(16, 2) NOT NULL,
+  `WK_Kelengkapan` double(16, 2) NOT NULL,
+  `WK_UkuranLayar` double(16, 2) NOT NULL,
+  `WK_DTBatrai` double(16, 2) NOT NULL,
+  `WK_VGA` double(16, 2) NOT NULL,
+  `WK_Processor` double(16, 2) NOT NULL,
+  `WK_RAM` double(16, 2) NOT NULL,
+  `WK_Hardisk` double(16, 2) NOT NULL,
+  `UT_Harga` double(16, 2) NULL DEFAULT NULL,
+  `UT_KondisiFisik` double(16, 2) NULL DEFAULT NULL,
+  `UT_Kelengkapan` double(16, 2) NULL DEFAULT NULL,
+  `UT_UkuranLayar` double(16, 2) NULL DEFAULT NULL,
+  `UT_DRBatrai` double(16, 2) NULL DEFAULT NULL,
+  `UT_VGA` double(16, 2) NULL DEFAULT NULL,
+  `UT_Processor` double(16, 2) NULL DEFAULT NULL,
+  `UT_RAM` double(16, 2) NULL DEFAULT NULL,
+  `UT_Hardisk` double(16, 2) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tmerk
 -- ----------------------------
+INSERT INTO `tmerk` VALUES (1, 'asus x200m', 1750000.00, 'mulus', 'unit + charger', '11.6', '2jam-3jam', 'single (intelHD)', 'Intel Celeron', '2 GB', '500GB', 3, 3, 2, 2, 4, 1, 1, 2, 2, 0.75, 1.00, 0.67, 0.50, 0.80, 0.50, 0.33, 0.50, 0.67, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `tmerk` VALUES (2, 'acer v5 123', 1650000.00, 'lecet ringan', 'unit + charger', '11.6', '1jam-2jam', 'single (intelHD)', 'AMD Sempron 140', '2 GB', '320GB', 3, 2, 2, 2, 3, 1, 1, 2, 1, 0.75, 0.67, 0.67, 0.50, 0.60, 0.50, 0.33, 0.50, 0.33, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `tmerk` VALUES (3, 'asus x401u', 1950000.00, 'lecet ringan', 'unit + charger', '14', '1jam-2jam', 'single (intelHD)', 'Intel Celeron', '2 GB', '320GB', 3, 2, 2, 3, 3, 1, 1, 2, 1, 0.75, 0.67, 0.67, 0.75, 0.60, 0.50, 0.33, 0.50, 0.33, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `tmerk` VALUES (4, 'asus 1025c', 1000000.00, 'lecet ringan', 'unit + charger', '10', '1jam-2jam', 'single (intelHD)', 'Intel Dual Core', '<2GB', '320GB', 4, 2, 2, 1, 3, 1, 1, 1, 1, 1.00, 0.67, 0.67, 0.25, 0.60, 0.50, 0.33, 0.25, 0.33, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `tmerk` VALUES (5, 'lenovo e10-30', 1000000.00, 'lecet ringan', 'unit + charger', '10', '1jam-2jam', 'single (intelHD)', 'Intel Dual Core', '2 GB', '320GB', 4, 2, 2, 1, 3, 1, 1, 2, 1, 1.00, 0.67, 0.67, 0.25, 0.60, 0.50, 0.33, 0.50, 0.33, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `tmerk` VALUES (6, 'acer 4739', 1950000.00, 'lecet ringan', 'unit + charger', '10', '1jam-2jam', 'single (intelHD)', 'Intel Core i3 2100', '2 GB', '320GB', 3, 2, 2, 1, 3, 1, 2, 2, 1, 0.75, 0.67, 0.67, 0.25, 0.60, 0.50, 0.67, 0.50, 0.33, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for tnilai
@@ -129,14 +166,14 @@ CREATE TABLE `tmerk`  (
 DROP TABLE IF EXISTS `tnilai`;
 CREATE TABLE `tnilai`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `batasatas` double(16, 2) NOT NULL,
   `batasbawah` double(16, 2) NOT NULL,
+  `batasatas` double(16, 2) NOT NULL,
   `kondisilain` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `indexs` int(255) NOT NULL,
   `nilai` double(16, 2) NOT NULL,
   `kodealternatif` int(255) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 99 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 101 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of tnilai
@@ -232,12 +269,14 @@ INSERT INTO `tnilai` VALUES (89, 0.00, 0.00, 'AMD FX 4300', 3, 3.00, 7);
 INSERT INTO `tnilai` VALUES (90, 0.00, 0.00, 'AMD FX 6300', 3, 3.00, 7);
 INSERT INTO `tnilai` VALUES (91, 0.00, 0.00, 'AMD FX 8350', 3, 3.00, 7);
 INSERT INTO `tnilai` VALUES (92, 0.00, 0.00, '<2GB', 1, 0.00, 8);
-INSERT INTO `tnilai` VALUES (93, 0.00, 0.00, '2GB', 2, 0.00, 8);
+INSERT INTO `tnilai` VALUES (93, 0.00, 0.00, '2 GB', 2, 0.00, 8);
 INSERT INTO `tnilai` VALUES (94, 0.00, 0.00, '4GB', 3, 0.00, 8);
 INSERT INTO `tnilai` VALUES (95, 0.00, 0.00, '8GB', 4, 0.00, 8);
 INSERT INTO `tnilai` VALUES (96, 0.00, 0.00, '320GB', 1, 0.00, 9);
 INSERT INTO `tnilai` VALUES (97, 0.00, 0.00, '500GB', 2, 0.00, 9);
 INSERT INTO `tnilai` VALUES (98, 0.00, 0.00, '1000GB', 3, 0.00, 9);
+INSERT INTO `tnilai` VALUES (99, 0.00, 0.00, '15.6', 4, 0.00, 4);
+INSERT INTO `tnilai` VALUES (100, 1.00, 2.00, '', 0, 0.00, 1);
 
 -- ----------------------------
 -- Table structure for userrole
@@ -282,5 +321,87 @@ CREATE TABLE `users`  (
 -- ----------------------------
 INSERT INTO `users` VALUES (14, 'admin', 'admin', 'a9bdd47d7321d4089b3b00561c9c621848bd6f6e2f745a53d54913d613789c23945b66de6ded1eb336a7d526f9349a9d964d6f6c3a40e2ac90b4b16c0121f7895Xg53McbkyQ/NmW60Sf4cu3wJsi/8cyZXxeXV7g6b04=', 'mnl', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `users` VALUES (43, 'operator', 'Operator', 'a9bdd47d7321d4089b3b00561c9c621848bd6f6e2f745a53d54913d613789c23945b66de6ded1eb336a7d526f9349a9d964d6f6c3a40e2ac90b4b16c0121f7895Xg53McbkyQ/NmW60Sf4cu3wJsi/8cyZXxeXV7g6b04=', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- ----------------------------
+-- View structure for vw_bobot
+-- ----------------------------
+DROP VIEW IF EXISTS `vw_bobot`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `vw_bobot` AS SELECT 
+	a.kodealternatif,b.NamaAlternatif,MAX(a.indexs) BobotFaktor
+FROM tnilai a
+LEFT JOIN talternatif b on a.kodealternatif = b.id WHERE a.kodealternatif = 1
+GROUP BY a.kodealternatif
+
+UNION ALL
+
+SELECT 
+	a.kodealternatif,b.NamaAlternatif,MAX(a.indexs) BobotFaktor
+FROM tnilai a
+LEFT JOIN talternatif b on a.kodealternatif = b.id WHERE a.kodealternatif = 2
+GROUP BY a.kodealternatif
+
+UNION ALL
+
+SELECT 
+	a.kodealternatif,b.NamaAlternatif,MAX(a.indexs) BobotFaktor
+FROM tnilai a
+LEFT JOIN talternatif b on a.kodealternatif = b.id WHERE a.kodealternatif = 3
+GROUP BY a.kodealternatif
+
+UNION ALL
+
+SELECT 
+	a.kodealternatif,b.NamaAlternatif,MAX(a.indexs) BobotFaktor
+FROM tnilai a
+LEFT JOIN talternatif b on a.kodealternatif = b.id WHERE a.kodealternatif = 4
+GROUP BY a.kodealternatif
+
+UNION ALL
+
+SELECT 
+	a.kodealternatif,b.NamaAlternatif,MAX(a.indexs) BobotFaktor
+FROM tnilai a
+LEFT JOIN talternatif b on a.kodealternatif = b.id WHERE a.kodealternatif = 5
+GROUP BY a.kodealternatif
+
+UNION ALL
+
+SELECT 
+	a.kodealternatif,b.NamaAlternatif,MAX(a.indexs) BobotFaktor
+FROM tnilai a
+LEFT JOIN talternatif b on a.kodealternatif = b.id WHERE a.kodealternatif = 6
+GROUP BY a.kodealternatif
+
+UNION ALL
+
+SELECT 
+	a.kodealternatif,b.NamaAlternatif,MAX(a.indexs) BobotFaktor
+FROM tnilai a
+LEFT JOIN talternatif b on a.kodealternatif = b.id WHERE a.kodealternatif = 7
+GROUP BY a.kodealternatif
+
+UNION ALL
+
+SELECT 
+	a.kodealternatif,b.NamaAlternatif,MAX(a.indexs) BobotFaktor
+FROM tnilai a
+LEFT JOIN talternatif b on a.kodealternatif = b.id WHERE a.kodealternatif = 8
+GROUP BY a.kodealternatif
+
+UNION ALL
+
+SELECT 
+	a.kodealternatif,b.NamaAlternatif,MAX(a.indexs) BobotFaktor
+FROM tnilai a
+LEFT JOIN talternatif b on a.kodealternatif = b.id WHERE a.kodealternatif = 9
+GROUP BY a.kodealternatif ;
+
+-- ----------------------------
+-- View structure for vw_bobotaavg
+-- ----------------------------
+DROP VIEW IF EXISTS `vw_bobotaavg`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `vw_bobotaavg` AS SELECT *,BobotFaktor/(
+	SELECT SUM(BobotFaktor) FROM vw_bobot
+) BobotFaktorAvg FROM vw_bobot ;
 
 SET FOREIGN_KEY_CHECKS = 1;
