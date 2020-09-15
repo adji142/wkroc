@@ -43,4 +43,8 @@ class home extends CI_Controller {
 	{
 		$this->load->view('merklaptop');
 	}
+	public function login()
+	{
+		$this->load->view('Index');
+	}
 }

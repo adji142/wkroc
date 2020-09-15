@@ -11,7 +11,7 @@
  Target Server Version : 100210
  File Encoding         : 65001
 
- Date: 14/09/2020 21:23:06
+ Date: 15/09/2020 22:50:49
 */
 
 SET NAMES utf8mb4;
@@ -105,6 +105,36 @@ INSERT INTO `talternatif` VALUES (8, 'RAM');
 INSERT INTO `talternatif` VALUES (9, 'Kapasitas penyimpanan');
 
 -- ----------------------------
+-- Table structure for thasiluji
+-- ----------------------------
+DROP TABLE IF EXISTS `thasiluji`;
+CREATE TABLE `thasiluji`  (
+  `NoUji` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `TglUji` datetime(6) NOT NULL,
+  `Nama` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `Email` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `NoTlp` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `Hasil` double(16, 2) NOT NULL,
+  `IdMerk` int(255) NOT NULL
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of thasiluji
+-- ----------------------------
+INSERT INTO `thasiluji` VALUES ('10000001', '2020-09-15 05:48:34.000000', 'xxx', 'prasetyoajiw@gmail.com', '081325058258', 3.59, 1);
+INSERT INTO `thasiluji` VALUES ('10000001', '2020-09-15 05:48:34.000000', 'xxx', 'prasetyoajiw@gmail.com', '081325058258', 3.01, 2);
+INSERT INTO `thasiluji` VALUES ('10000001', '2020-09-15 05:48:34.000000', 'xxx', 'prasetyoajiw@gmail.com', '081325058258', 3.15, 6);
+INSERT INTO `thasiluji` VALUES ('10000001', '2020-09-15 05:48:35.000000', 'xxx', 'prasetyoajiw@gmail.com', '081325058258', 3.09, 5);
+INSERT INTO `thasiluji` VALUES ('10000001', '2020-09-15 05:48:35.000000', 'xxx', 'prasetyoajiw@gmail.com', '081325058258', 3.09, 3);
+INSERT INTO `thasiluji` VALUES ('10000001', '2020-09-15 05:48:35.000000', 'xxx', 'prasetyoajiw@gmail.com', '081325058258', 2.84, 4);
+INSERT INTO `thasiluji` VALUES ('10000002', '2020-09-15 05:49:31.000000', 'Aji', 'prasetyoajiw@gmail.com', '081325058258', 4.12, 1);
+INSERT INTO `thasiluji` VALUES ('10000002', '2020-09-15 05:49:31.000000', 'Aji', 'prasetyoajiw@gmail.com', '081325058258', 3.47, 4);
+INSERT INTO `thasiluji` VALUES ('10000002', '2020-09-15 05:49:31.000000', 'Aji', 'prasetyoajiw@gmail.com', '081325058258', 3.71, 3);
+INSERT INTO `thasiluji` VALUES ('10000002', '2020-09-15 05:49:31.000000', 'Aji', 'prasetyoajiw@gmail.com', '081325058258', 3.61, 6);
+INSERT INTO `thasiluji` VALUES ('10000002', '2020-09-15 05:49:31.000000', 'Aji', 'prasetyoajiw@gmail.com', '081325058258', 3.54, 2);
+INSERT INTO `thasiluji` VALUES ('10000002', '2020-09-15 05:49:31.000000', 'Aji', 'prasetyoajiw@gmail.com', '081325058258', 3.63, 5);
+
+-- ----------------------------
 -- Table structure for tmerk
 -- ----------------------------
 DROP TABLE IF EXISTS `tmerk`;
@@ -153,12 +183,12 @@ CREATE TABLE `tmerk`  (
 -- ----------------------------
 -- Records of tmerk
 -- ----------------------------
-INSERT INTO `tmerk` VALUES (1, 'asus x200m', 1750000.00, 'mulus', 'unit + charger', '11.6', '2jam-3jam', 'single (intelHD)', 'Intel Celeron', '2 GB', '500GB', 3, 3, 2, 2, 4, 1, 1, 2, 2, 0.75, 1.00, 0.67, 0.50, 0.80, 0.50, 0.33, 0.50, 0.67, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `tmerk` VALUES (2, 'acer v5 123', 1650000.00, 'lecet ringan', 'unit + charger', '11.6', '1jam-2jam', 'single (intelHD)', 'AMD Sempron 140', '2 GB', '320GB', 3, 2, 2, 2, 3, 1, 1, 2, 1, 0.75, 0.67, 0.67, 0.50, 0.60, 0.50, 0.33, 0.50, 0.33, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `tmerk` VALUES (3, 'asus x401u', 1950000.00, 'lecet ringan', 'unit + charger', '14', '1jam-2jam', 'single (intelHD)', 'Intel Celeron', '2 GB', '320GB', 3, 2, 2, 3, 3, 1, 1, 2, 1, 0.75, 0.67, 0.67, 0.75, 0.60, 0.50, 0.33, 0.50, 0.33, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `tmerk` VALUES (4, 'asus 1025c', 1000000.00, 'lecet ringan', 'unit + charger', '10', '1jam-2jam', 'single (intelHD)', 'Intel Dual Core', '<2GB', '320GB', 4, 2, 2, 1, 3, 1, 1, 1, 1, 1.00, 0.67, 0.67, 0.25, 0.60, 0.50, 0.33, 0.25, 0.33, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `tmerk` VALUES (5, 'lenovo e10-30', 1000000.00, 'lecet ringan', 'unit + charger', '10', '1jam-2jam', 'single (intelHD)', 'Intel Dual Core', '2 GB', '320GB', 4, 2, 2, 1, 3, 1, 1, 2, 1, 1.00, 0.67, 0.67, 0.25, 0.60, 0.50, 0.33, 0.50, 0.33, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `tmerk` VALUES (6, 'acer 4739', 1950000.00, 'lecet ringan', 'unit + charger', '10', '1jam-2jam', 'single (intelHD)', 'Intel Core i3 2100', '2 GB', '320GB', 3, 2, 2, 1, 3, 1, 2, 2, 1, 0.75, 0.67, 0.67, 0.25, 0.60, 0.50, 0.67, 0.50, 0.33, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `tmerk` VALUES (1, 'asus x200m', 1750000.00, 'mulus', 'unit + charger', '11.6', '2jam-3jam', 'single (intelHD)', 'Intel Celeron', '2 GB', '500GB', 3, 3, 2, 2, 4, 1, 1, 2, 2, 0.75, 1.00, 0.67, 0.50, 0.80, 0.50, 0.33, 0.50, 0.67, 0.75, 0.67, 0.67, 0.33, 0.53, 0.17, 0.22, 0.33, 0.45);
+INSERT INTO `tmerk` VALUES (2, 'acer v5 123', 1650000.00, 'lecet ringan', 'unit + charger', '11.6', '1jam-2jam', 'single (intelHD)', 'AMD Sempron 140', '2 GB', '320GB', 3, 2, 2, 2, 3, 1, 1, 2, 1, 0.75, 0.67, 0.67, 0.50, 0.60, 0.50, 0.33, 0.50, 0.33, 0.75, 0.45, 0.67, 0.33, 0.40, 0.17, 0.22, 0.33, 0.22);
+INSERT INTO `tmerk` VALUES (3, 'asus x401u', 1950000.00, 'lecet ringan', 'unit + charger', '14', '1jam-2jam', 'single (intelHD)', 'Intel Celeron', '2 GB', '320GB', 3, 2, 2, 3, 3, 1, 1, 2, 1, 0.75, 0.67, 0.67, 0.75, 0.60, 0.50, 0.33, 0.50, 0.33, 0.75, 0.45, 0.67, 0.50, 0.40, 0.17, 0.22, 0.33, 0.22);
+INSERT INTO `tmerk` VALUES (4, 'asus 1025c', 1000000.00, 'lecet ringan', 'unit + charger', '10', '1jam-2jam', 'single (intelHD)', 'Intel Dual Core', '<2GB', '320GB', 4, 2, 2, 1, 3, 1, 1, 1, 1, 1.00, 0.67, 0.67, 0.25, 0.60, 0.50, 0.33, 0.25, 0.33, 1.00, 0.45, 0.67, 0.17, 0.40, 0.17, 0.22, 0.17, 0.22);
+INSERT INTO `tmerk` VALUES (5, 'lenovo e10-30', 1000000.00, 'lecet ringan', 'unit + charger', '10', '1jam-2jam', 'single (intelHD)', 'Intel Dual Core', '2 GB', '320GB', 4, 2, 2, 1, 3, 1, 1, 2, 1, 1.00, 0.67, 0.67, 0.25, 0.60, 0.50, 0.33, 0.50, 0.33, 1.00, 0.45, 0.67, 0.17, 0.40, 0.17, 0.22, 0.33, 0.22);
+INSERT INTO `tmerk` VALUES (6, 'acer 4739', 1950000.00, 'lecet ringan', 'unit + charger', '10', '1jam-2jam', 'single (intelHD)', 'Intel Core i3 2100', '2 GB', '320GB', 3, 2, 2, 1, 3, 1, 2, 2, 1, 0.75, 0.67, 0.67, 0.25, 0.60, 0.50, 0.67, 0.50, 0.33, 0.75, 0.45, 0.67, 0.17, 0.40, 0.17, 0.45, 0.33, 0.22);
 
 -- ----------------------------
 -- Table structure for tnilai

@@ -41,7 +41,7 @@
               }
             }
           ?>
-          <li><a><i class="glyphicon glyphicon-off"></i> Logout <span class="label label-success pull-right"></span></a>
+          <li><a href="<?php echo base_url() ?>Auth/Logout"><i class="glyphicon glyphicon-off"></i> Logout <span class="label label-success pull-right"></span></a>
           </li>
         </ul>
       </div>
