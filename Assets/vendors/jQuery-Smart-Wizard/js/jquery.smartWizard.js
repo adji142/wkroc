@@ -23,7 +23,7 @@ function SmartWizard(target, options) {
     this.buttons = {
         next : $('<a>'+options.labelNext+'</a>').attr("href","#").addClass("buttonNext"),
         previous : $('<a>'+options.labelPrevious+'</a>').attr("href","#").addClass("buttonPrevious"),
-        finish  : $('<a>'+options.labelFinish+'</a>').attr("href","#").addClass("buttonFinish")
+        finish  : $('<a>'+options.labelFinish+'</a>').attr("href","#").addClass("buttonFinish btn btn-danger")
     };
 
     /*
@@ -287,6 +287,7 @@ function SmartWizard(target, options) {
         if (! $this.steps.hasClass('disabled') || $this.options.enableFinishButton){
             $($this.buttons.finish).removeClass("buttonDisabled");
             if ($this.options.hideButtonsOnDisabled) {
+                $($this.buttons.next).css("display","none");
                 $($this.buttons.finish).show();
             }
         }else{
