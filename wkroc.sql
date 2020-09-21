@@ -11,7 +11,7 @@
  Target Server Version : 100210
  File Encoding         : 65001
 
- Date: 15/09/2020 22:50:49
+ Date: 21/09/2020 19:23:54
 */
 
 SET NAMES utf8mb4;
@@ -35,7 +35,7 @@ CREATE TABLE `permission`  (
   `MobileRoute` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `MobileLogo` int(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of permission
@@ -43,6 +43,8 @@ CREATE TABLE `permission`  (
 INSERT INTO `permission` VALUES (1, 'Alternatif', 'alternatif', 'fa-check-square', '0', b'0', b'0', 1, b'1', NULL, NULL, NULL);
 INSERT INTO `permission` VALUES (2, 'Nilai', 'nilai', 'fa-check-square-o', '0', b'0', b'0', 2, b'1', NULL, NULL, NULL);
 INSERT INTO `permission` VALUES (3, 'Merk Laptop', 'merk', 'fa-file-image-o', '0', b'0', b'0', 3, b'1', NULL, NULL, NULL);
+INSERT INTO `permission` VALUES (4, 'Daftar Uji Pelanggan', 'ujipelanggan', 'fa-briefcase', '0', b'0', b'0', 4, b'1', NULL, NULL, NULL);
+INSERT INTO `permission` VALUES (5, 'User', 'user', 'fa-user', '0', b'0', b'0', 5, b'1', NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for permissionrole
@@ -323,6 +325,7 @@ CREATE TABLE `userrole`  (
 -- ----------------------------
 INSERT INTO `userrole` VALUES (14, 1);
 INSERT INTO `userrole` VALUES (43, 2);
+INSERT INTO `userrole` VALUES (44, 1);
 INSERT INTO `userrole` VALUES (52, 1);
 
 -- ----------------------------
@@ -344,7 +347,7 @@ CREATE TABLE `users`  (
   `email` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `phone` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 44 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
