@@ -58,3 +58,5 @@ $route['alternatif'] = 'Home/alternatif';
 $route['nilai'] = 'Home/nilai';
 $route['merk'] = 'Home/merk';
 $route['proses'] = 'Home/proses';
+$route['ujipelanggan'] = 'Home/ujipelanggan';
+$route['user'] = 'Home/user';

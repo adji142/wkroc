@@ -47,4 +47,12 @@ class home extends CI_Controller {
 	{
 		$this->load->view('Index');
 	}
+	public function ujipelanggan()
+	{
+		$this->load->view('hasilujipelanggan');
+	}
+	public function user()
+	{
+		$this->load->view('user');
+	}
 }

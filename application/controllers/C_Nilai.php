@@ -116,4 +116,20 @@ class C_Nilai extends CI_Controller {
 		}
 		echo json_encode($data);
 	}
+	public function HasilUji()
+	{
+		$data = array('success' => false ,'message'=>array(),'data' => array());
+		$SQL = "SELECT 
+					DATE(a.TglUji) TglUji,a.Nama,a.Email,a.NoTlp,b.Merk,MAX(a.Hasil) NilaiTeratas
+				FROM thasiluji a
+				LEFT JOIN tmerk b on a.IdMerk = b.id
+				GROUP BY DATE(a.TglUji),a.Nama,a.Email,a.NoTlp ";
+
+		$rs = $this->db->query($SQL);
+		if ($rs->num_rows() > 0) {
+			$data['success'] = true;
+			$data['data'] = $rs->result();
+		}
+		echo json_encode($data);
+	}
 }

@@ -79,6 +79,9 @@ class Auth extends CI_Controller {
 		$mail = $this->input->post('mail');
 		$pass = $this->input->post('pass');
 		$role = $this->input->post('role');
+
+		$id = $this->input->post('id');
+		$formtype = $this->input->post('formtype');
 		$md_pass = $this->encryption->encrypt($pass);
 
 		// 
@@ -88,24 +91,47 @@ class Auth extends CI_Controller {
 			'email'		=> $mail,
 			'password'	=> $md_pass,
 		);
+		if ($formtype == 'add') {
+			$call = $this->ModelsExecuteMaster->ExecInsert($insert,'users');
 
-		$call = $this->ModelsExecuteMaster->ExecInsert($insert,'users');
-
-		if ($call) {
-			$xuser = $this->ModelsExecuteMaster->FindData(array('username'=>$uname),'users');
-			if ($xuser->num_rows() > 0) {
-				$insert = array(
-					'userid' 	=> $xuser->row()->id,
-					'roleid'	=> $role,
-				);
-				$call_x = $this->ModelsExecuteMaster->ExecInsert($insert,'userrole');
-				if ($call_x) {
-					$data['success'] = true;
+			if ($call) {
+				$xuser = $this->ModelsExecuteMaster->FindData(array('username'=>$uname),'users');
+				if ($xuser->num_rows() > 0) {
+					$insert = array(
+						'userid' 	=> $xuser->row()->id,
+						'roleid'	=> $role,
+					);
+					$call_x = $this->ModelsExecuteMaster->ExecInsert($insert,'userrole');
+					if ($call_x) {
+						$data['success'] = true;
+					}
 				}
 			}
+			else{
+				$data['message'] = 'Data Gagal di input';
+			}
 		}
-		else{
-			$data['message'] = 'Data Gagal di input';
+		elseif ($formtype == 'edit') {
+			$rs = $this->ModelsExecuteMaster->ExecUpdate($insert,array('id'=>$id),'users');
+			if ($rs) {
+				$data['success'] = true;
+			}
+			else{
+				$data['success'] = false;
+				$data['message'] = 'Gagal Updata Data';
+			}
+		}
+		elseif ($formtype == 'delete') {
+			try {
+				$SQL = "DELETE FROM users WHERE id = ".$id;
+				$rs = $this->db->query($SQL);
+				if ($rs) {
+					$data['success'] = true;
+				}
+			} catch (Exception $e) {
+				$data['success'] = false;
+				$data['message'] = "Gagal memproses data ". $e->getMessage();
+			}
 		}
 		echo json_encode($data);
 	}
@@ -160,6 +186,23 @@ class Auth extends CI_Controller {
 			$data['success'] = true;
 			$data['nomor'] = $nomor;
 		}
+		echo json_encode($data);
+	}
+	public function Read()
+	{
+		$data = array('success' => false ,'message'=>array(),'data' => array(),'decript'=>'');
+
+		$id = $this->input->post('id');
+
+		if ($id == '') {
+			$rs = $this->ModelsExecuteMaster->Getdata('users');
+		}
+		else{
+			$rs = $this->ModelsExecuteMaster->FindData(array('id'=>$id),'users');
+			$data['decript'] = $this->encryption->decrypt($rs->row()->password);
+		}
+		$data['success'] = true;
+		$data['data'] = $rs->result();
 		echo json_encode($data);
 	}
 }
