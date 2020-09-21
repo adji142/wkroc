@@ -78,6 +78,8 @@ class C_Merk extends CI_Controller {
 		$formtype = $this->input->post('formtype');
 
 		if ($formtype != "delete") {
+			$Stok = $this->input->post('Stok');
+			$images = $this->input->post('images');
 			$Merk = $this->input->post('Merk');
 			$Harga = $this->input->post('Harga');
 			$KondisiFisik = $this->input->post('KondisiFisik');
@@ -136,7 +138,9 @@ class C_Merk extends CI_Controller {
 			'WK_VGA' => $WK_VGA,
 			'WK_Processor' => $WK_Processor,
 			'WK_RAM' => $WK_RAM,
-			'WK_Hardisk' => $WK_Hardisk
+			'WK_Hardisk' => $WK_Hardisk,
+			'Stok'	=> $Stok,
+			'images' => $images
 		);
 		if ($formtype == 'add') {
 			$this->db->trans_begin();

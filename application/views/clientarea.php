@@ -636,16 +636,21 @@
                     dataField: "Hasil",
                     caption: "Bobot",
                     allowEditing:false
-                }
-                // {
-                //     dataField: "FileItem",
-                //     caption: "Action",
-                //     allowEditing:false,
-                //     cellTemplate: function(cellElement, cellInfo) {
-                //         var LinkAccess = "<button id = "+cellInfo.data.id+" class='badge badge-primary fullspek'>Spesifikasi</button>";
-                //         cellElement.append(LinkAccess);
-                //     }
-                //   },
+                },
+                {
+                    dataField: "Stok",
+                    caption: "Stok",
+                    allowEditing:false
+                },
+                {
+                    dataField: "FileItem",
+                    caption: "Action",
+                    allowEditing:false,
+                    cellTemplate: function(cellElement, cellInfo) {
+                        var LinkAccess = "<img src = '"+cellInfo.data.images+"' id = "+cellInfo.data.id+" width='50%'></img>";
+                        cellElement.append(LinkAccess);
+                    }
+                  },
             ],
             onEditingStart: function(e) {
                 // GetData(e.data.id);

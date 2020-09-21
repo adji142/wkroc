@@ -194,6 +194,22 @@
                       <input type="hidden" name="N_Hardisk" id="N_Hardisk">
                     </div>
                   </div>
+
+                  <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Stok<span class="required">*</span>
+                    </label>
+                    <div class="col-md-6 col-sm-6 ">
+                      <input type="number" name="Stok" id="Stok" placeholder="Stok" class="form-control " value="0">
+                    </div>
+                  </div>
+                  <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Gambar<span class="required">*</span>
+                    </label>
+                    <input type="file" id="Attachment" name="Attachment" accept=".jpg , .jpeg , .png" />
+                    <img src="" id="profile-img-tag" width="200" />
+                    <textarea id="images" name="images" ></textarea>
+                    <!-- style="display: none;" -->
+                  </div>
                   <div class="ite" form-group>
                     <button class="btn btn-primary" id="btn_Save">Save</button>
                   </div>
@@ -242,6 +258,7 @@
 ?>
 <script type="text/javascript">
   $(function () {
+        var _URL = window.URL || window.webkitURL;
         $(document).ready(function () {
           var where_field = '';
           var where_value = '';
@@ -476,6 +493,22 @@
         $('.close').click(function() {
           location.reload();
         });
+        $("#Attachment").change(function(){
+          var file = $(this)[0].files[0];
+          img = new Image();
+          img.src = _URL.createObjectURL(file);
+          var imgwidth = 0;
+          var imgheight = 0;
+          img.onload = function () {
+            imgwidth = this.width;
+            imgheight = this.height;
+            $('#width').val(imgwidth);
+            $('#height').val(imgheight);
+          }
+          readURL(this);
+          encodeImagetoBase64(this);
+          // alert("Current width=" + imgwidth + ", " + "Original height=" + imgheight);
+        });
     function GetData(id) {
       var where_field = 'id';
       var where_value = id;
@@ -506,6 +539,8 @@
                 $('#N_Processor').val(v.N_Processor);
                 $('#N_RAM').val(v.N_RAM);
                 $('#N_Hardisk').val(v.N_Hardisk);
+                $('#Stok').val(v.Stok);
+                $('#images').val(v.images);
 
                 $('#id').val(v.id);
                 $('#formtype').val("edit");
@@ -514,6 +549,27 @@
               });
             }
           });
+    }
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+            
+          reader.onload = function (e) {
+              $('#profile-img-tag').attr('src', e.target.result);
+          }
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+    function encodeImagetoBase64(element) {
+      $('#images').val('');
+        var file = element.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function() {
+          // $(".link").attr("href",reader.result);
+          // $(".link").text(reader.result);
+          $('#images').val(reader.result);
+        }
+        reader.readAsDataURL(file);
     }
     function bindGrid(data) {
 
@@ -556,6 +612,11 @@
                 {
                     dataField: "Merk",
                     caption: "Merk",
+                    allowEditing:false
+                },
+                {
+                    dataField: "Stok",
+                    caption: "Stok",
                     allowEditing:false
                 },
                 {
