@@ -51,6 +51,64 @@
             </div>
             <div class="clearfix"></div>
 
+            <div class="Row">
+              <div class="col-md-12 col-sm-12  ">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Daftar Item</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                      <div class="row">
+                        <?php
+                          $SQL = "SELECT * FROM tmerk";
+                          $rs = $this->db->query($SQL);
+                          foreach ($rs->result() as $key) {
+                            echo '
+                              <div class="col-md-3">
+                                <div class="x_panel">
+                                  <div class="x_title">
+                                    <h2><center>'.$key->Merk.'</center></h2>
+                                    <div class="clearfix"></div>
+                                  </div>
+                                  <div class="x_content">
+                                    <div style="text-align: center; margin-bottom: -57px">
+                                      <div class="thumbnail">
+                                        <div class="image view view-first">
+                                          <img style="width: 100%; display: block;" src="'.$key->images.'" alt="image" />
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <center><p>'.$key->Processor.'</p></center>
+                                    <center><p>'.$key->RAM.'/'.$key->Hardisk.'</p></center>
+                                    <center><p>'.$key->VGA.'</p></center>
+                                    <center><p>Kelengkapan '.$key->Kelengkapan.'</p></center>
+                                    <center><p>Fisik '.$key->KondisiFisik.'</p></center>
+                                    <center><p>Rp. '.number_format($key->Harga).'</p></center>
+                                    <center><button class = "btn btn-success klikdong" id = "'.$key->id.'">Detail</button></center>
+                                  </div>
+                                </div>
+                              </div>
+                            ';
+                          }
+                          /*
+                          <div class="caption">
+                                          <p>Snow and Ice Incoming for the South</p>
+                                        </div>
+                            <p>Your Text</p>
+                            <div class="tools tools-bottom">
+                              <a href="#"><i class="fa fa-link"></i></a>
+                              <a href="#"><i class="fa fa-pencil"></i></a>
+                              <a href="#"><i class="fa fa-times"></i></a>
+                            </div>
+                          */
+                        ?>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="row">
 
               <div class="col-md-12 col-sm-12 ">
@@ -431,6 +489,37 @@
 
           </div>
         </div>
+
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true" id="modal_">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Modal Alternatif</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <center><img id="imagesmodal" name="imagesmodal" style="width: 30%; height: 50%;"></center>
+                <div id="Merkdong"></div>
+                <table class="table table-striped">
+                  <tbody id="filldata">
+                    <tr>
+                      <td>Processpr</td>
+                      <td>xx</td>
+                    </tr>
+                  </tbody>
+                  
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                
+              </div>
+
+            </div>
+          </div>
+        </div>
   </body>
 </html>
 <!-- jQuery -->
@@ -525,6 +614,56 @@
               });
             }
           });
+        });
+        $('.klikdong').click(function () {
+          var id = $(this).attr("id");
+          // alert(id);
+          $.ajax({
+            type: "post",
+            url: "<?=base_url()?>C_Merk/read",
+            data: {'id':id},
+            dataType: "json",
+            success: function (response) {
+              var html = '';
+              $.each(response.data,function (k,v) {
+                $("#imagesmodal").attr("src", v.images);
+                $('#Merkdong').html('<br><center><b><h2>'+v.Merk+'<h2></b></center>');
+                html += '<tr>' + 
+                          '<td> Processor </td>'+
+                          '<td> '+v.Processor+' </td>'+
+                        '</tr>'+
+                        '<tr>' + 
+                          '<td> RAM / Hardisk </td>'+
+                          '<td> '+v.RAM+' / '+v.Hardisk+' </td>'+
+                        '</tr>'+
+                        '<tr>' + 
+                          '<td> VGA </td>'+
+                          '<td> '+v.VGA+' </td>'+
+                        '</tr>'+
+                        '<tr>' + 
+                          '<td> Ukuran Layar </td>'+
+                          '<td> '+v.UkuranLayar+' </td>'+
+                        '</tr>'+
+                        '<tr>' + 
+                          '<td> Kelengkapan </td>'+
+                          '<td> '+v.Kelengkapan+' </td>'+
+                        '</tr>'+
+                        '<tr>' + 
+                          '<td> KondisiFisik </td>'+
+                          '<td> '+v.KondisiFisik+' </td>'+
+                        '</tr>'+
+                        '<tr>' + 
+                          '<td> Daya Tahan Batrai </td>'+
+                          '<td> '+v.DTBatrai+' </td>'+
+                        '</tr>'
+              });
+              $('#filldata').html(html);
+              $('#modal_').modal('show');
+            }
+          });
+        });
+        $('.close').click(function() {
+          // location.reload();
         });
         // end Handle CSRF token
         $('#loginform').submit(function (e) {
@@ -633,13 +772,13 @@
                     allowEditing:false
                 },
                 {
-                    dataField: "Hasil",
-                    caption: "Bobot",
+                    dataField: "Stok",
+                    caption: "Stok",
                     allowEditing:false
                 },
                 {
-                    dataField: "Stok",
-                    caption: "Stok",
+                    dataField: "Harga",
+                    caption: "Harga",
                     allowEditing:false
                 },
                 {
@@ -647,7 +786,7 @@
                     caption: "Action",
                     allowEditing:false,
                     cellTemplate: function(cellElement, cellInfo) {
-                        var LinkAccess = "<img src = '"+cellInfo.data.images+"' id = "+cellInfo.data.id+" width='50%'></img>";
+                        var LinkAccess = "<center><button class = 'btn btn-success' onClick='detail("+cellInfo.data.id+")' id = '"+cellInfo.data.id+"'>Detail</button></center>";
                         cellElement.append(LinkAccess);
                     }
                   },
@@ -737,4 +876,49 @@
         // $('.dx-toolbar-after').append('Tambah Alat untuk di pinjam ');
     }
     });
+function detail(id) {
+  $.ajax({
+    type: "post",
+    url: "<?=base_url()?>C_Merk/read",
+    data: {'id':id},
+    dataType: "json",
+    success: function (response) {
+      var html = '';
+      $.each(response.data,function (k,v) {
+        $("#imagesmodal").attr("src", v.images);
+        $('#Merkdong').html('<br><center><b><h2>'+v.Merk+'<h2></b></center>');
+        html += '<tr>' + 
+                  '<td> Processor </td>'+
+                  '<td> '+v.Processor+' </td>'+
+                '</tr>'+
+                '<tr>' + 
+                  '<td> RAM / Hardisk </td>'+
+                  '<td> '+v.RAM+' / '+v.Hardisk+' </td>'+
+                '</tr>'+
+                '<tr>' + 
+                  '<td> VGA </td>'+
+                  '<td> '+v.VGA+' </td>'+
+                '</tr>'+
+                '<tr>' + 
+                  '<td> Ukuran Layar </td>'+
+                  '<td> '+v.UkuranLayar+' </td>'+
+                '</tr>'+
+                '<tr>' + 
+                  '<td> Kelengkapan </td>'+
+                  '<td> '+v.Kelengkapan+' </td>'+
+                '</tr>'+
+                '<tr>' + 
+                  '<td> KondisiFisik </td>'+
+                  '<td> '+v.KondisiFisik+' </td>'+
+                '</tr>'+
+                '<tr>' + 
+                  '<td> Daya Tahan Batrai </td>'+
+                  '<td> '+v.DTBatrai+' </td>'+
+                '</tr>'
+      });
+      $('#filldata').html(html);
+      $('#modal_').modal('show');
+    }
+  });
+}
 </script>
