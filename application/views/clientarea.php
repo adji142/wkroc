@@ -547,6 +547,7 @@
         });
         $(document).ready(function () {
             $.ajax({
+                async:false,
                 type: "post",
                 url: "<?=base_url()?>C_Proses/GetHasilUji",
                 data: {'Email':''},
@@ -592,12 +593,14 @@
                       var hasil = parseFloat(v.UT_Harga) + parseFloat(v.UT_KondisiFisik) + parseFloat(v.UT_Kelengkapan) + parseFloat(v.UT_UkuranLayar) + parseFloat(v.UT_DRBatrai) + parseFloat(v.UT_VGA) + parseFloat(v.UT_Processor) + parseFloat(v.UT_RAM) + parseFloat(v.UT_Hardisk);
                       console.log(hasil);
                       $.ajax({
+                        async:false,
                         type: "post",
                         url: "<?=base_url()?>C_Proses/appendhasil",
                         data: {'NoUji':response.NoUji,Nama:Nama,Email:Email,NoTlp:NoTlp,hasil:hasil,'id':v.id},
                         dataType: "json",
                         success: function (responseAppend) {
                           $.ajax({
+                            async:false,
                             type: "post",
                             url: "<?=base_url()?>C_Proses/GetHasilUji",
                             data: {'NoUji':response.NoUji},
@@ -619,6 +622,7 @@
           var id = $(this).attr("id");
           // alert(id);
           $.ajax({
+            async:false,
             type: "post",
             url: "<?=base_url()?>C_Merk/read",
             data: {'id':id},
@@ -674,6 +678,7 @@
             var me = $(this);
             // alert(me.serialize());
             $.ajax({
+                async:false,
                 type: "post",
                 url: "<?=base_url()?>Auth/Log_Pro",
                 data: me.serialize(),
@@ -831,6 +836,7 @@
                   var value = id;
 
                   $.ajax({
+                      async:false,
                       type    :'post',
                       url     : '<?=base_url()?>C_Alternatif/CRUD',
                       data    : {'id':id,'formtype':'delete'},
@@ -878,6 +884,7 @@
     });
 function detail(id) {
   $.ajax({
+    async:false,
     type: "post",
     url: "<?=base_url()?>C_Merk/read",
     data: {'id':id},
